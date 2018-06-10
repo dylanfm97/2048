@@ -1,0 +1,334 @@
+
+:root {
+	--tile-width: 120px;
+	--tile-height: 120px;
+}
+
+@keyframes appear {
+    from{
+    	opacity: 0;
+    }
+    to{
+    	opacity: 1;
+    }
+}
+
+
+@keyframes move_up-one {
+	from{
+		margin-top: 0px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_up-two {
+	from{
+		margin-top: 126px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_up-three {
+	from{
+		margin-top: 252px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_right-one {
+	from{
+		margin-right: 0px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_right-two {
+	from{
+		margin-right: 126px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_right-three {
+	from{
+		margin-right: 252px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_down-one {
+	from{
+		margin-bottom: 0px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_down-two {
+	from{
+		margin-bottom: 126px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_down-three {
+	from{
+		margin-bottom: 252px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_left-one {
+	from{
+		left: var(--tile-width);
+		}
+	to{
+		left: 0px;
+	}
+}
+
+@keyframes move_left-two {
+	from{
+		margin-left: 126px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+@keyframes move_left-three {
+	from{
+		margin-left: 252px
+	}
+	to{
+		margin: 1px
+	}
+}
+
+body{
+	background-image: url(green.jpg);
+	background-size: cover;
+	background-position: 50% 50%;
+	background-attachment: fixed;
+}
+
+h3{
+	text-align: center;
+	font-family: 'Cinzel', serif;
+	font-size: 4rem;
+}
+
+h4{
+	padding: 0px;
+	margin: 0px;
+
+}
+
+h5{
+	font-family: 'Cinzel', serif;
+	font-size: 1.5rem;
+	
+}
+
+header{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: rgba(175, 175, 175,.8);
+	border-radius: 5px;
+}
+
+span{
+	margin: 0px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.clear{
+	clear: both;
+}
+
+
+
+.move_up-one {
+	animation-name: move_up-one;
+	animation-duration: 1s;
+}
+
+.move_up-two {
+	animation-name: move_up-two;
+	animation-duration: 1s;
+}
+
+.move_up-three {
+	animation-name: move_up-three;
+	animation-duration: 1s;
+}
+
+.move_right-one {
+	animation-name: move_right-one;
+	animation-duration: 1s;
+}
+
+.move_right-two {
+	animation-name: move_right-two;
+	animation-duration: 1s;
+}
+
+.move_right-three {
+	animation-name: move_right-three;
+	animation-duration: 1s;
+}
+
+.move_down-one {
+	animation-name: move_down-one;
+	animation-duration: 1s;
+}
+
+.move_down-two {
+	animation-name: move_down-two;
+	animation-duration: 1s;
+}
+
+.move_down-three {
+	animation-name: move_down-three;
+	animation-duration: 1s;
+}
+
+.move_left-one {
+	position: relative;
+	animation-name: move_left-one;
+	animation-duration: .3s;
+}
+
+.move_left-two {
+	animation-name: move_left-two;
+	animation-duration: 1s;
+}
+
+.move_left-three {
+	animation-name: move_left-three;
+	animation-duration: 1s;
+}
+
+
+.new_tile{
+	animation-name: appear;
+	animation-duration: .5s;
+}
+
+.row{
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tile{
+	margin: 1px;
+	height: var(--tile-height);
+	width: var(--tile-width);
+	border-style: solid;
+	border-width: 2px;
+	background-color: rgba(.6,.6,.6,.6);
+	border-radius: 5px;
+	font-family: 'Cinzel', serif;
+	font-size: 3rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tile-2{
+	background-color: #759ad6;
+}
+
+.tile-4{
+	background-color: #3961a0;
+}
+
+.tile-8{
+	background-color: #5c42a3;
+}
+
+.tile-16{
+	background-color: #6f52b2;
+}
+
+.tile-32{
+	background-color: #512b6d; 
+}
+
+.tile-64{
+	background-color: #4f214d;
+}
+
+.tile-128{
+	background-color: #602e43;
+
+}
+
+.tile-256{
+	background-color: #89092b;
+
+}
+
+.tile-512{
+	background-color: #c40707;
+
+}
+
+.tile-1024{
+	background-color: #824a17;
+
+}
+
+.tile-2048{
+	background-color: #FFD700;
+
+}
+
+
+#board{
+	position: relative;
+	top: -100px;
+	width: 600px;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-wrap: wrap;
+	padding: 60px 20px;
+	background-color: rgba(175, 175, 175,.8);
+	opacity: 1;
+	border-radius: 10px;
+}
+
+
+
+#scoreboard{
+	position: relative;
+	top: -100px;
+	width: 600px;
+	display: flex;
+	margin: auto;
+
+}

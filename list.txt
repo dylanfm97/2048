@@ -1,0 +1,21 @@
+
+
+2048
+
+GRID
+-4x4 grid
+
+-Initialize starting numbers
+	    -either 2 2's or a 2 and a 4
+	    -figure out the probability
+	    -randomly choose what empty cell to put it in
+-new tiles after merging
+-no 2 tiles in the same spot
+
+-create an array of arrays ?? to represent the numbers
+-figure out how the scoring works
+-write a function that will check rows and combine matching numbers
+-
+
+-bells and whistles- animation
+-save the game state
