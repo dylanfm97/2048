@@ -206,10 +206,24 @@ var update_board = function(){
 					this_tile.classList.add("new_tile");
 				}
 				else if(board_animations[key] == "move_left-1"){
-					console.log("I added the class wtf");
+				//	console.log("I added the class wtf");
 					this_tile.classList.add("move_left-one");
-
-					
+				}
+				else if(board_animations[key] == "move_left-2"){
+					this_tile.classList.add("move_left-two");
+				}
+				else if(board_animations[key] == "move_left-3"){
+					this_tile.classList.add("move_left-three");
+				}
+				else if(board_animations[key] == "move_right-1"){
+				//	console.log("I added the class wtf");
+					this_tile.classList.add("move_right-one");
+				}
+				else if(board_animations[key] == "move_right-2"){
+					this_tile.classList.add("move_right-two");
+				}
+				else if(board_animations[key] == "move_right-3"){
+					this_tile.classList.add("move_right-three");
 				}
 
 				this_tile.innerHTML = board[key];
@@ -270,6 +284,9 @@ var add_animations = function(board_before, board_after, direction){
 
 	if(direction == "left"){
 		for(var j = 0; j < 4; j++){ //loop over each row
+
+			console.log("row: "+j);
+
 			this_row_before = get_numbers_in_row_with_zero(j, board_before);
 			
 			console.log("this row before");
@@ -286,16 +303,27 @@ var add_animations = function(board_before, board_after, direction){
 				//if I'm not a zero and I'm not the first number
 					for(var z = k-1; z >= 0; z--){
 					//loop from this number back to the beginning of the list
-						if(this_row_before[z] == 0 || (z == k-1 && this_row_before[z] == this_row_before[k])){
+						if(this_row_before[z] == 0 || (z == k-1 && this_row_before[z] == this_row_before[k]
+							|| this_row_before[z] == this_row_before[k] && this_row_before[z+1] == 0)){
 						//if there is a zero to my left OR if there is a duplicate of me adjacent to my left
 							spaces_moved++;
 						}
 					}
 					//have: row#, col#
-					var key = tile_key(k-1, j);
-					console.log(k + ", "+j);
-					board_animations[key] = "move_left-"+spaces_moved;
-
+					var key;
+					if(spaces_moved == 1){
+						key = tile_key(k-1, j);
+					}
+					else if(spaces_moved == 2){
+						key = tile_key(k-2, j);
+					}
+					else if(spaces_moved == 3){
+						key = tile_key(k-3, j);
+					}
+					console.log(key);
+					if(spaces_moved > 0){
+						board_animations[key] = "move_left-"+spaces_moved;
+					}
 					console.log(this_row_before[k]+": spaces moved "+spaces_moved);
 				}
 
@@ -306,6 +334,59 @@ var add_animations = function(board_before, board_after, direction){
 
 		}//end outer for	
 	}//end if==left
+	else if(direction == "right"){
+		for(var j = 0; j < 4; j++){ //loop over each row
+
+			console.log("row: "+j);
+
+			this_row_before = get_numbers_in_row_with_zero(j, board_before);
+
+			console.log("this row before");
+			console.log(this_row_before);
+			this_row_after = get_numbers_in_row_with_zero(j, board_after);
+			console.log("this row after");
+			console.log(this_row_after);
+			
+			this_row_before.reverse();
+			
+
+			for(var k = 0; k < 4; k++){//loop over each num in the row
+				spaces_moved = 0;
+
+				if(this_row_before[k] != 0 && k > 0){
+				//if I'm not a zero and I'm not the first number
+					for(var z = k-1; z >= 0; z--){
+					//loop from this number back to the beginning of the list
+						if(this_row_before[z] == 0 || (z == k-1 && this_row_before[z] == this_row_before[k]
+							|| this_row_before[z] == this_row_before[k] && this_row_before[z+1] == 0)){
+						//if there is a zero to my left OR if there is a duplicate of me adjacent to my left
+							spaces_moved++;
+						}
+					}
+					//have: row#, col#
+					var key;
+					if(spaces_moved == 1){
+						key = tile_key(k, j);
+					}
+					else if(spaces_moved == 2){
+						key = tile_key(k, j);
+					}
+					else if(spaces_moved == 3){
+						key = tile_key(k, j);
+					}
+					console.log(key);
+					if(spaces_moved > 0){
+						board_animations[key] = "move_right-"+spaces_moved;
+					}
+					console.log(this_row_before[k]+": spaces moved "+spaces_moved);
+				}
+
+				
+			}//end for over single number
+
+				
+	}
+}
 	
 
 }
@@ -366,6 +447,7 @@ document.onkeydown = function(event) {
 			set_numbers_in_row(row, this_row, false);
 			
 		}
+		add_animations(board_copy, board, "right");
 	}
 	else if(event.key == "ArrowDown"){
 		for(var col = 0; col < 4; col++){
@@ -380,14 +462,11 @@ document.onkeydown = function(event) {
 		for(var row = 0; row < 4; row++){
 			var this_row = get_numbers_in_row(row);
 
-			
-
 			this_row = combine_row(this_row);
 			set_numbers_in_row(row, this_row, true);
-			
-
-			add_animations(board_copy, board, "left");
+				
 		}
+		add_animations(board_copy, board, "left");
 	}
 
 	

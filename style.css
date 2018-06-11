@@ -16,82 +16,82 @@
 
 @keyframes move_up-one {
 	from{
-		margin-top: 0px
-	}
+		top: var(--tile-width);
+		}
 	to{
-		margin: 1px
+		top: 0px;
 	}
 }
 
 @keyframes move_up-two {
 	from{
-		margin-top: 126px
+		top: calc(var(--tile-width) * 2);
 	}
 	to{
-		margin: 1px
+		top: 0px;
 	}
 }
 
 @keyframes move_up-three {
 	from{
-		margin-top: 252px
+		top: calc(var(--tile-width) * 3);
 	}
 	to{
-		margin: 1px
+		top: 0px;
 	}
 }
 
 @keyframes move_right-one {
 	from{
-		margin-right: 0px
-	}
+		right: var(--tile-width);
+		}
 	to{
-		margin: 1px
+		right: 0px;
 	}
 }
 
 @keyframes move_right-two {
 	from{
-		margin-right: 126px
+		right: calc(var(--tile-width) * 2);
 	}
 	to{
-		margin: 1px
+		right: 0px;
 	}
 }
 
 @keyframes move_right-three {
 	from{
-		margin-right: 252px
+		right: calc(var(--tile-width) * 3);
 	}
 	to{
-		margin: 1px
+		right: 0px;
 	}
 }
 
 @keyframes move_down-one {
 	from{
-		margin-bottom: 0px
-	}
+		bottom: var(--tile-width);
+		}
 	to{
-		margin: 1px
+		bottom: 0px;
 	}
 }
 
 @keyframes move_down-two {
 	from{
-		margin-bottom: 126px
+		bottom: calc(var(--tile-width) * 2);
 	}
 	to{
-		margin: 1px
+		bottom: 0px;
 	}
 }
 
 @keyframes move_down-three {
 	from{
-		margin-bottom: 252px
+		bottom: calc(var(--tile-width) * 3);
 	}
 	to{
-		margin: 1px
+		bottom: 0px;
 	}
 }
 
@@ -106,19 +106,19 @@
 
 @keyframes move_left-two {
 	from{
-		margin-left: 126px
+		left: calc(var(--tile-width) * 2);
 	}
 	to{
-		margin: 1px
+		left: 0px;
 	}
 }
 
 @keyframes move_left-three {
 	from{
-		margin-left: 252px
+		left: calc(var(--tile-width) * 3);
 	}
 	to{
-		margin: 1px
+		left: 0px;
 	}
 }
 
@@ -127,6 +127,10 @@ body{
 	background-size: cover;
 	background-position: 50% 50%;
 	background-attachment: fixed;
+}
+
+div {
+	/*background-color: rgba(.6,.6,.6,.6);*/
 }
 
 h3{
@@ -169,64 +173,75 @@ span{
 
 
 .move_up-one {
+	position: relative;
 	animation-name: move_up-one;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_up-two {
+	position: relative;
 	animation-name: move_up-two;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_up-three {
+	position: relative;
 	animation-name: move_up-three;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_right-one {
+	position: relative;
 	animation-name: move_right-one;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_right-two {
+	position: relative;
 	animation-name: move_right-two;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_right-three {
+	position: relative;
 	animation-name: move_right-three;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_down-one {
+	position: relative;
 	animation-name: move_down-one;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_down-two {
+	position: relative;
 	animation-name: move_down-two;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_down-three {
+	position: relative;
 	animation-name: move_down-three;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_left-one {
 	position: relative;
 	animation-name: move_left-one;
-	animation-duration: .3s;
+	animation-duration: .2s;
 }
 
 .move_left-two {
+	position: relative;
 	animation-name: move_left-two;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 .move_left-three {
+	position: relative;
 	animation-name: move_left-three;
-	animation-duration: 1s;
+	animation-duration: .2s;
 }
 
 
